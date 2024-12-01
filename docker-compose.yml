@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  hapi-fhir:
+    image: hapiproject/hapi:latest
+    container_name: hapi-fhir
+    ports:
+      - "8090:8080"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+    volumes:
+      - hapi-data:/data
+
+volumes:
+  hapi-data:
+    driver: local
